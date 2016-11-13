@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--[if lte IE 6]><html class="preIE7 preIE8 preIE9"><![endif]-->
+<!--[if IE 7]><html class="preIE8 preIE9"><![endif]-->
+<!--[if IE 8]><html class="preIE9"><![endif]-->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Secure Random Password Generator</title>
+  </head>
+  <body>
+
+  <div id="main">
+    <h1>Secure Random Password Generator</h1>
+    <p>All passwords generated securely by furiously pounding at my computer in frustration.</p>
+    <p>Want a secure password? Simply click below.</p>
+
+    <a href="#" id="generate">Get Secure Password!</a>
+    <div id="pw">
+    </div>
+  </div>
+  
+  <script type="text/javascript">
+   function autorun()
+   {
+
+    var button = document.getElementById("generate");
+    var pw_area = document.getElementById("pw");
+
+    var clearPassword = function(){
+      while (pw_area.firstChild) {
+        console.log(pw_area)
+        pw_area.removeChild(pw_area.firstChild)
+      }
+    }
+
+    var showPassword = function() {
+      var random_pw = getRand();
+      console.log(random_pw)
+      var pw_p = document.createElement("p");
+      pw_p.innerHTML = random_pw;
+      pw_area.appendChild(pw_p);
+    }
+
+    var getRand = function() {
+      return randomKeys[Math.floor(Math.random()*randomKeys.length)]
+    }
+
+    button.onclick = function(){
+      clearPassword();
+      showPassword();
+    }
+
+
+    var randomKeys = ['lk;asdfjlk;asdjfl;skdjfl;askfjsdf', ';lkasdjfl;kajsdflk;adjsf ;oiaewu oariusdlflsadf', ';lakdjsf;loxaslkdam;aslkd', 'l;kajsdflkjsdfljsdflkjasdfjs', 'asdlkjsdflkjsdlfkjsdlfkjsdfjsdlfkjsldkfj', 'l;kajsd;fkljasdfl;kadsflkjasldkfjsl;adfwoeijroasidflskdfj', ';lkasjdf;lkajsdfl;kasdjfl;askdjflkasjdfl;askdjfal;sdfja;slkdj', ';lakjsdf;lkadsflkasd;lkfasldkfjas;lfj;lsdkfjsdla;flksjf', 'asdl;kasdfj;lsakdfj;laskfalskfjalsdkjfaslkdjf', 'a;kajsdfl;kadslkadsflkjasdlf;jas;dsdfl;j']
+    
+   }
+   if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
+   else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);
+   else window.onload = autorun;
+  </script>
+  </body>
+</html>
